@@ -3,85 +3,163 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diba & D'Orre</title>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
-    * {
+    body, html {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    body {
+      width: 100%;
+      height: 100%;
       background: #000;
       font-family: 'Playfair Display', serif;
-      color: gold;
       overflow: hidden;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 20px;
-      background: transparent;
-      position: relative;
-      z-index: 10;
-    }
-    nav a {
       color: gold;
-      font-size: 18px;
-      text-decoration: none;
-      cursor: pointer;
     }
-    .section {
-      display: none;
-      text-align: center;
-      padding: 100px 20px;
-      font-size: 24px;
-    }
-    #home-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      position: relative;
-      z-index: 5;
-      transition: opacity 1s ease;
-    }
-    #home-section.fade-out {
-      opacity: 0;
-    }
-    .logo {
-      width: 250px;
-      margin-bottom: 20px;
-    }
-    #particles {
+    #tsparticles {
       position: absolute;
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 0;
       z-index: 1;
+    }
+    #intro {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+    }
+    #intro img {
+      width: 280px;
+      height: auto;
+      filter: drop-shadow(0 0 15px gold);
+    }
+    .nav-btn {
+      margin: 10px;
+      background: transparent;
+      border: 2px solid gold;
+      color: gold;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .nav-btn:hover {
+      background: gold;
+      color: black;
+    }
+    #main-content {
+      display: none;
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .page {
+      display: none;
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      padding-top: 100px;
+      background-repeat: no-repeat;
+      animation-duration: 0.8s;
+      animation-fill-mode: both;
+    }
+    .slide-in {
+      animation-name: slideInFromRight;
+    }
+    .slide-out {
+      animation-name: slideOutToLeft;
+    }
+    @keyframes slideInFromRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOutToLeft {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(-100%); opacity: 0; }
+    }
+    .page h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .page p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto;
     }
   </style>
 </head>
-<body>
-  <nav>
-    <a onclick="navigateTo('home')">Home</a>
-    <a onclick="navigateTo('about')">About</a>
-    <a onclick="navigateTo('products')">Products</a>
-  </nav>  <div id="home-section">
-    <canvas id="particles"></canvas>
-    <img src="file_000000008da0620a9fa66ea4902bfe40.png" alt="Logo" class="logo" />
-    <h1>Welcome to Diba & D'Orre</h1>
-    <p>A timeless tale of elegance & Persian luxury.</p>
-  </div>  <div id="about-section" class="section">This is the About page.</div>
-  <div id="products-section" class="section">This is the Products page.</div>  <script>
-    function navigateTo(section) {
-      const home = document.getElementById('home-section');
-      home.classList.add('fade-out');
-      setTimeout(() => {
-        home.style.display = 'none';
-        document.getElementById(`${section}-section`).style.display = 'block';
-      }, 1000);
+<body>  <div id="tsparticles"></div>  <div id="intro">
+    <img src="file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
+    <br>
+    <button class="nav-btn" onclick="enterSite()">Enter</button>
+  </div>  <div id="main-content">
+    <div>
+      <button class="nav-btn" onclick="showPage('home')">Home</button>
+      <button class="nav-btn" onclick="showPage('about')">About</button>
+      <button class="nav-btn" onclick="showPage('products')">Products</button>
+      <button class="nav-btn" onclick="goBackIntro()">Back to Intro</button>
+    </div><div id="home" class="page" style="background-image: url('https://tse4.mm.bing.net/th?id=OIP.KkzMWALHUADZZ4KvXsb21QHaE8&pid=Api');">
+  <h1>Welcome to Diba & D'Orre</h1>
+  <p>Discover timeless Persian luxury crafted with passion and elegance. Experience the soul of nature.</p>
+</div>
+
+<div id="about" class="page" style="background-image: url('https://tse4.mm.bing.net/th?id=OIP.c3anTfMNVLtteoiswRZfJgHaDf&pid=Api');">
+  <h1>About Us</h1>
+  <p>At Diba & D'Orre, we blend Persia's rich cultural heritage with luxury. Our story is woven into every grain of saffron, every drop of honey, every sip of tea.</p>
+</div>
+
+<div id="products" class="page" style="background-image: url('https://tse1.mm.bing.net/th?id=OIP.q0dX3xs2mnYNyHGNsdK5RwHaLH&pid=Api');">
+  <h1>Our Products</h1>
+  <p>Explore our premium saffron, organic honey in crystal jars, and artisan teas — all presented in luxurious packaging, crafted to perfection.</p>
+</div>
+
+  </div>  <script>
+    tsParticles.load("tsparticles", {
+      background: { color: "#000" },
+      particles: {
+        number: { value: 120 },
+        color: { value: "#d4af37" },
+        shape: { type: "circle" },
+        opacity: { value: 0.8 },
+        size: { value: 2, random: true },
+        move: {
+          enable: true,
+          speed: 0.8,
+          random: true,
+          outModes: { default: "out" }
+        }
+      }
+    });
+
+    function enterSite() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+      showPage('home');
+    }
+
+    function goBackIntro() {
+      document.getElementById("main-content").style.display = "none";
+      document.getElementById("intro").style.display = "block";
+    }
+
+    let currentPage = '';
+
+    function showPage(pageId) {
+      const pages = document.querySelectorAll(".page");
+      pages.forEach(page => {
+        if (page.id === currentPage) {
+          page.classList.remove("slide-in");
+          page.classList.add("slide-out");
+          setTimeout(() => { page.style.display = "none"; }, 800);
+        }
+      });
+      const newPage = document.getElementById(pageId);
+      newPage.style.display = "block";
+      newPage.classList.remove("slide-out");
+      newPage.classList.add("slide-in");
+      currentPage = pageId;
     }
   </script></body>
 </html>
