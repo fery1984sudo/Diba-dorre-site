@@ -1,85 +1,78 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diba & D'Orre</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
-      background-color: #000;
       overflow: hidden;
+      background-color: #000;
     }
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
-    .logo-container {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
-    .logo-container img {
-      width: 220px;
-      height: auto;
+    canvas {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
-  <div class="logo-container">
-    <img src="file_00000000179c61f7a71df27d6520c633.png" alt="Diba & D'Orre Logo">
-  </div>  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 90,
-          "density": {
-            "enable": true,
-            "value_area": 800
+  <canvas id="canvas"></canvas>  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const img = new Image();
+    img.src = "file-FCtswEwA8DhW75eYrvdbWL.png"; // Replace with correct path
+
+    const particles = [];
+    const density = 4;
+
+    img.onload = () => {
+      const tempCanvas = document.createElement("canvas");
+      const tempCtx = tempCanvas.getContext("2d");
+      tempCanvas.width = img.width;
+      tempCanvas.height = img.height;
+      tempCtx.drawImage(img, 0, 0);
+      const imageData = tempCtx.getImageData(0, 0, img.width, img.height);
+
+      for (let y = 0; y < img.height; y += density) {
+        for (let x = 0; x < img.width; x += density) {
+          const i = (y * img.width + x) * 4;
+          const alpha = imageData.data[i + 3];
+          if (alpha > 128) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              tx: x + (width - img.width) / 2,
+              ty: y + (height - img.height) / 2,
+              vx: 0,
+              vy: 0
+            });
           }
-        },
-        "color": { "value": "#b89d5b" },
-        "shape": {
-          "type": "circle",
-          "stroke": { "width": 0, "color": "#000000" }
-        },
-        "opacity": {
-          "value": 0.8,
-          "random": true
-        },
-        "size": {
-          "value": 3,
-          "random": true
-        },
-        "line_linked": {
-          "enable": false
-        },
-        "move": {
-          "enable": true,
-          "speed": 1,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false
         }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": false },
-          "onclick": { "enable": false },
-          "resize": true
-        }
-      },
-      "retina_detect": true
+      }
+      animate();
+    };
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#d4af37";
+      for (const p of particles) {
+        p.vx = (p.tx - p.x) * 0.02;
+        p.vy = (p.ty - p.y) * 0.02;
+        p.x += p.vx;
+        p.y += p.vy;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     });
   </script></body>
 </html>
