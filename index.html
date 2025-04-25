@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,6 +12,26 @@
       height: 100%;
       background: #000;
       overflow: hidden;
+      font-family: 'Georgia', serif;
+    }
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      box-sizing: border-box;
+    }
+    header nav a {
+      color: #d4af37;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 16px;
     }
     #tsparticles {
       position: absolute;
@@ -37,33 +56,66 @@
   </style>
 </head>
 <body>
-  <div id="tsparticles"></div>
-  <img id="logo" src="file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre logo" />
-  
-  <script>
+  <div id="tsparticles"></div>  <header>
+    <div style="color:#d4af37;font-weight:bold;font-size:18px">DIBA & D'ORRE</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <img id="logo" src="file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo" />  <script>
     tsParticles.load("tsparticles", {
-      background: { color: "#000" },
+      background: {
+        color: "#000"
+      },
       particles: {
-        number: { value: 100 },
-        color: { value: "#d4af37" },
-        shape: { type: "circle" },
-        opacity: { value: 0.8 },
-        size: { value: 2, random: true },
+        number: {
+          value: 100
+        },
+        color: {
+          value: "#d4af37"
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.8
+        },
+        size: {
+          value: 2,
+          random: true
+        },
         move: {
           enable: true,
           speed: 0.8,
           direction: "none",
           random: true,
-          outModes: { default: "out" }
+          outModes: {
+            default: "out"
+          }
         }
       },
       interactivity: {
+        detectsOn: "canvas",
         events: {
-          onhover: { enable: false },
-          onclick: { enable: false }
+          onhover: {
+            enable: true,
+            mode: "attract"
+          },
+          onclick: {
+            enable: false
+          },
+          resize: true
+        },
+        modes: {
+          attract: {
+            distance: 200,
+            duration: 0.4,
+            speed: 1
+          }
         }
       }
     });
-  </script>
-</body>
+  </script></body>
 </html>
