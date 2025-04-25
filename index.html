@@ -6,18 +6,16 @@
   <title>Diba & D'Orre</title>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      background: black;
       height: 100%;
+      background: #000;
       overflow: hidden;
     }
 
     #tsparticles {
-      position: fixed;
-      top: 0;
-      left: 0;
+      position: absolute;
       width: 100%;
       height: 100%;
       z-index: 1;
@@ -28,46 +26,59 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 300px;
-      height: auto;
+      width: 250px;
+      opacity: 0;
       z-index: 2;
-      animation: fadeIn 4s ease-in-out;
+      animation: fadeIn 3s ease 2s forwards;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
-      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      to {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
   <div id="tsparticles"></div>
-  <img id="logo" src="file-9buwSAQWNCHPoppZN83UeR" alt="Diba & D'Orre Logo"/>
+  <img id="logo" src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_00000000179c61f7a71df27d6520c633.png" alt="Diba & D'Orre Logo" />
 
   <script>
     tsParticles.load("tsparticles", {
-      fullScreen: { enable: false },
-      background: { color: "#000" },
+      background: {
+        color: "#000"
+      },
       particles: {
-        number: { value: 100 },
-        color: { value: "#d4af37" },
-        shape: { type: "circle" },
-        opacity: { value: 0.8 },
-        size: { value: 2, random: true },
+        number: {
+          value: 100
+        },
+        color: {
+          value: "#d4af37"
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.7
+        },
+        size: {
+          value: 2,
+          random: true
+        },
         move: {
           enable: true,
-          speed: 0.8,
+          speed: 1,
           direction: "none",
-          random: true,
-          outModes: { default: "out" }
+          random: false,
+          straight: false,
+          outModes: {
+            default: "out"
+          }
         }
       },
-      interactivity: {
-        detectsOn: "canvas",
-        events: {
-          onhover: { enable: false },
-          onclick: { enable: false }
-        }
+      fullScreen: {
+        enable: true,
+        zIndex: 0
       }
     });
   </script>
