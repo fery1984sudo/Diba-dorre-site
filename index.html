@@ -1,120 +1,73 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diba & D'Orre</title>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      overflow: hidden;
+tsParticles.load("tsparticles", {
+  background: {
+    color: "#000"
+  },
+  particles: {
+    number: { value: 150 },
+    color: { value: "#d4af37" },
+    shape: { type: "circle" },
+    opacity: { value: 0.8 },
+    size: { value: 2, random: true },
+    move: {
+      enable: true,
+      speed: 1,
+      random: true,
+      outModes: { default: "out" }
     }
-    #tsparticles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-    #logo-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-      height: auto;
-      opacity: 0;
-      animation: glow 3s ease-in-out 5s forwards;
-      z-index: 2;
-    }@keyframes glow {
-  0% { opacity: 0; filter: drop-shadow(0 0 0px gold); }
-  50% { opacity: 1; filter: drop-shadow(0 0 20px gold); }
-  100% { opacity: 1; filter: drop-shadow(0 0 10px gold); }
-}
-
-  </style>
-</head>
-<body>
-  <div id="tsparticles"></div>
-  <img id="logo-glow" src="file_00000000179c61f7a71df27d6520c633.png" alt="Diba & D'Orre Logo">  <script>
-    tsParticles.load("tsparticles", {
-      background: {
-        color: "#000"
+  },
+  interactivity: {
+    detectsOn: "canvas",
+    events: {
+      onhover: {
+        enable: true,
+        mode: "attract"
       },
-      particles: {
-        number: {
-          value: 150
-        },
-        color: {
-          value: "#d4af37"
-        },
-        shape: {
-          type: "circle"
-        },
-        opacity: {
-          value: 0.8
-        },
-        size: {
-          value: 2,
-          random: true
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          random: true,
-          outModes: {
-            default: "out"
-          }
+      onclick: {
+        enable: false
+      },
+      resize: true
+    },
+    modes: {
+      attract: {
+        distance: 200,
+        duration: 0.4,
+        speed: 1
+      }
+    }
+  },
+  emitters: {
+    autoPlay: true,
+    direction: "none",
+    life: {
+      duration: 6,
+      delay: 0
+    },
+    rate: {
+      quantity: 0,
+      delay: 0.1
+    },
+    size: {
+      width: 0,
+      height: 0
+    },
+    particles: {
+      shape: {
+        type: "image",
+        image: {
+          src: "file_00000000179c61f7a71df27d6520c633.png",
+          width: 500,
+          height: 500
         }
       },
-      interactivity: {
-        events: {
-          onhover: {
-            enable: false
-          },
-          onclick: {
-            enable: false
-          }
-        }
+      size: {
+        value: 2
       },
-      emitters: {
-        autoPlay: true,
-        direction: "none",
-        life: {
-          duration: 6,
-          delay: 0
-        },
-        rate: {
-          quantity: 0,
-          delay: 0.1
-        },
-        size: {
-          width: 0,
-          height: 0
-        },
-        particles: {
-          shape: {
-            type: "image",
-            image: {
-              src: "file_00000000179c61f7a71df27d6520c633.png",
-              width: 500,
-              height: 500
-            }
-          },
-          size: {
-            value: 2
-          },
-          move: {
-            speed: 2,
-            outModes: {
-              default: "out"
-            }
-          }
+      move: {
+        speed: 2,
+        outModes: {
+          default: "out"
         }
       }
-    });
-  </script></body>
-</html>
+    }
+  }
+});
