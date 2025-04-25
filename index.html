@@ -10,13 +10,20 @@
             height: 100vh;
             background-color: black; /* پس‌زمینه مشکی */
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: 'Arial', sans-serif;
         }
 
+        /* اضافه کردن تصویر روباه و کلاغ */
+        .logo-image {
+            width: 100px; /* اندازه تصویر */
+            margin-bottom: 20px; /* فاصله از متن */
+        }
+
         h1 {
-            font-size: 5rem; /* اندازه بزرگ */
+            font-size: 3rem; /* اندازه کوچک‌تر فونت */
             color: #f8e3a2; /* رنگ طلایی */
             text-align: center;
             font-weight: bold;
@@ -24,6 +31,7 @@
     </style>
 </head>
 <body>
+    <img src="images/fox-and-crow.png" alt="Fox and Crow" class="logo-image"> <!-- لوگو روباه و کلاغ -->
     <h1>Diba & D'Orre</h1>
 </body>
 </html>
