@@ -6,79 +6,62 @@
   <title>Diba & D'Orre</title>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
   <style>
-    html, body {
+    body, html {
       margin: 0;
       padding: 0;
+      width: 100%;
       height: 100%;
       background: #000;
       overflow: hidden;
     }
-
     #tsparticles {
       position: absolute;
       width: 100%;
       height: 100%;
       z-index: 1;
     }
-
     #logo {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 250px;
-      opacity: 0;
+      width: 280px;
+      height: auto;
       z-index: 2;
-      animation: fadeIn 3s ease 2s forwards;
+      animation: fadeIn 3s ease-in-out forwards;
+      opacity: 0;
     }
-
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <div id="tsparticles"></div>
-  <img id="logo" src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_00000000179c61f7a71df27d6520c633.png" alt="Diba & D'Orre Logo" />
-
+  <img id="logo" src="file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre logo" />
+  
   <script>
     tsParticles.load("tsparticles", {
-      background: {
-        color: "#000"
-      },
+      background: { color: "#000" },
       particles: {
-        number: {
-          value: 100
-        },
-        color: {
-          value: "#d4af37"
-        },
-        shape: {
-          type: "circle"
-        },
-        opacity: {
-          value: 0.7
-        },
-        size: {
-          value: 2,
-          random: true
-        },
+        number: { value: 100 },
+        color: { value: "#d4af37" },
+        shape: { type: "circle" },
+        opacity: { value: 0.8 },
+        size: { value: 2, random: true },
         move: {
           enable: true,
-          speed: 1,
+          speed: 0.8,
           direction: "none",
-          random: false,
-          straight: false,
-          outModes: {
-            default: "out"
-          }
+          random: true,
+          outModes: { default: "out" }
         }
       },
-      fullScreen: {
-        enable: true,
-        zIndex: 0
+      interactivity: {
+        events: {
+          onhover: { enable: false },
+          onclick: { enable: false }
+        }
       }
     });
   </script>
