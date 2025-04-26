@@ -13,7 +13,7 @@
       background: #000;
     }
 
-    /* صفحه اول لوگو */
+    /* صفحه لوگو */
     #intro {
       background: #000;
       height: 100vh;
@@ -52,10 +52,10 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      opacity: 0;
-      animation: fadeIn 2s ease-in-out 6s forwards;
       text-align: center;
       padding: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 6s forwards;
       position: absolute;
       top: 0;
       left: 0;
@@ -66,37 +66,72 @@
       to { opacity: 1; }
     }
 
-    #welcome h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
+    .letter {
+      display: inline-block;
       opacity: 0;
-      animation: slideUp 2s ease-out 6s forwards;
+      transform: translateY(20px);
+      animation: letterFade 0.5s forwards;
+    }
+
+    @keyframes letterFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #welcome h1, #welcome p {
+      margin: 10px 0;
+      font-weight: normal;
+    }
+
+    #welcome h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
     }
 
     #welcome p {
       font-size: 18px;
       max-width: 500px;
-      line-height: 1.7;
-      opacity: 0;
-      animation: slideUp 2s ease-out 7s forwards;
-    }
-
-    @keyframes slideUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+      line-height: 1.8;
     }
   </style>
 </head>
 <body>
-  
+
   <div id="intro">
     <img src="file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
   </div>
 
   <div id="welcome">
-    <h1>Diba & D'Orre</h1>
-    <p>Crafted not for many — but for the rare few.<br>Whispered secrets. Eternal treasures.</p>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const titleText = "Diba & D'Orre";
+      const subtitleText = "Crafted not for many — but for the rare few. Whispered secrets. Eternal treasures.";
+
+      const titleContainer = document.getElementById('title');
+      const subtitleContainer = document.getElementById('subtitle');
+
+      function animateText(container, text, startDelay) {
+        text.split('').forEach((char, index) => {
+          const span = document.createElement('span');
+          span.textContent = char;
+          span.classList.add('letter');
+          span.style.animationDelay = (startDelay + index * 0.05) + 's';
+          container.appendChild(span);
+        });
+      }
+
+      setTimeout(() => {
+        animateText(titleContainer, titleText, 0);
+        animateText(subtitleContainer, subtitleText, 2);
+      }, 6000); // بعد از ۶ ثانیه که لوگو رفت
+    });
+  </script>
 
 </body>
 </html>
