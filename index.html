@@ -10,6 +10,7 @@
       padding: 0;
       overflow: hidden;
       font-family: 'Playfair Display', serif;
+      background: #000;
     }
 
     /* صفحه اول لوگو */
@@ -22,17 +23,19 @@
       justify-content: center;
       align-items: center;
       animation: fadeOut 2s ease-in-out 4s forwards;
+      z-index: 2;
+      position: relative;
     }
 
     #intro img {
-      width: 220px;
+      width: 350px;
       animation: logoGlow 4s ease-in-out;
     }
 
     @keyframes logoGlow {
       0% { opacity: 0; transform: scale(0.8); filter: drop-shadow(0 0 0px gold); }
-      50% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 20px gold); }
-      100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 10px gold); }
+      50% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 25px gold); }
+      100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 15px gold); }
     }
 
     @keyframes fadeOut {
@@ -53,6 +56,10 @@
       animation: fadeIn 2s ease-in-out 6s forwards;
       text-align: center;
       padding: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
     }
 
     @keyframes fadeIn {
@@ -62,12 +69,21 @@
     #welcome h1 {
       font-size: 28px;
       margin-bottom: 20px;
+      opacity: 0;
+      animation: slideUp 2s ease-out 6s forwards;
     }
 
     #welcome p {
       font-size: 18px;
       max-width: 500px;
       line-height: 1.7;
+      opacity: 0;
+      animation: slideUp 2s ease-out 7s forwards;
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
