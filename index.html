@@ -132,3 +132,94 @@
 
 </body>
 </html>
+<!-- اینو بعد از خوشامدگویی (داخل body) بذار -->
+
+<!-- منوی سه خطی -->
+<div class="menu-toggle" id="menu-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<nav id="menu">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<style>
+/* استایل منوی سه خط */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  margin-bottom: 6px;
+  background: gold;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* استایل منوی باز شده */
+#menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.5s ease;
+  z-index: 99;
+  padding-top: 100px;
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+#menu ul li {
+  margin: 20px 0;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #B4975A;
+  transition: color 0.3s;
+}
+
+#menu ul li a:hover {
+  color: black;
+}
+
+/* تغییر وضعیت منو */
+.menu-open #menu {
+  right: 0;
+}
+</style>
+
+<script>
+// اسکریپت باز و بسته شدن منو
+const menuToggle = document.getElementById('menu-toggle');
+const body = document.body;
+
+menuToggle.addEventListener('click', function() {
+  body.classList.toggle('menu-open');
+});
+</script>
