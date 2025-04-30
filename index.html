@@ -156,22 +156,67 @@
 </nav>
 
 <!-- اینجا سکشن جدا باشه -->
-<section id="about" style="max-width: 800px; margin: auto; padding: 2rem 1rem;">
-  <h2 style="text-align: center; font-size: 2rem; color: gold;">About Diba & D’Orre</h2>
-  <p style="font-size: 1.1rem; line-height: 2rem; color: #ddd; margin-top: 1rem; text-align: justify;">
-    Diba & D’Orre was born from a different vision — not merely to sell products, but to craft a rare experience in the art of giving.
-  </p>
-  <p style="font-size: 1.1rem; line-height: 2rem; color: #ddd; text-align: justify;">
-    We believe that a gift is not just an item; it carries the message, emotion, and refined taste of the giver. We curate a refined selection of luxury treasures—each chosen and presented with precision, elegance, and timeless value.
-  </p>
-  <p style="font-size: 1.1rem; line-height: 2rem; color: #ddd; text-align: justify;">
-    Every offering from Diba & D’Orre tells a silent story of taste, quality, and the pursuit of beauty. Beyond borders, beyond time, and beyond expectations.
-  </p>
+<!-- About Section with Background -->
+<section id="about">
+  <div class="overlay">
+    <h2>About Diba & D’Orre</h2>
+    <p>
+      Diba & D’Orre was born from a different vision — not merely to sell products, but to craft a rare experience in the art of giving.
+    </p>
+    <p>
+      We believe that a gift is not just an item; it carries the message, emotion, and refined taste of the giver. We curate a refined selection of luxury treasures—each chosen and presented with precision, elegance, and timeless value.
+    </p>
+    <p>
+      Every offering from Diba & D’Orre tells a silent story of taste, quality, and the pursuit of beauty. Beyond borders, beyond time, and beyond expectations.
+    </p>
+  </div>
 </section>
-  </ul>
-</nav>
 
+<!-- Styles -->
 <style>
+  #about {
+    background: url('https://images.unsplash.com/photo-1589834397601-c29589bba0c5?auto=format&fit=crop&w=1950&q=80') center center / cover no-repeat;
+    padding: 6vw;
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    color: #f2f2f2;
+  }
+
+  #about .overlay {
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 4vw;
+    border-radius: 16px;
+  }
+
+  #about h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: gold;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #about h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: gold;
+    margin: 12px auto 0;
+  }
+
+  #about p {
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 1.5em;
+  }
+
+  @media (max-width: 600px) {
+    #about h2 { font-size: 26px; }
+    #about p { font-size: 16px; }
+    #about .overlay { padding: 6vw; }
+  }
+</style>
 /* استایل منوی سه خط */
 .menu-toggle {
   position: fixed;
