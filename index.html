@@ -239,9 +239,15 @@
 // اسکریپت باز و بسته شدن منو
 const menuToggle = document.getElementById('menu-toggle');
 const body = document.body;
- 
+
+menuToggle.addEventListener('click', () => {
+  body.classList.toggle('menu-open');
+});
+
+// بستن منو هنگام کلیک روی لینک‌ها
 document.querySelectorAll('#menu a').forEach(link => {
   link.addEventListener('click', () => {
     body.classList.remove('menu-open');
+  });
 });
 </script>
