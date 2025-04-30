@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <title>Diba & D'Orre | Official Luxury Treasures</title>
-
   <meta name="description" content="Discover Diba & D’Orre – a sanctuary of rare luxuries. Fine treasures crafted for the few, whispered secrets, eternal elegance.">
-  
   <link rel="icon" href="favicon.png" type="image/png">
-</head>
   <style>
     * {
       margin: 0;
@@ -25,7 +21,6 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* صفحه لوگو */
     .intro {
       position: fixed;
       top: 0;
@@ -73,7 +68,6 @@
       }
     }
 
-    /* صفحه خوشامدگویی */
     .welcome {
       position: relative;
       width: 100%;
@@ -110,7 +104,6 @@
       }
     }
 
-    /* ریسپانسیو موبایل */
     @media (max-width: 600px) {
       .welcome h1 {
         font-size: 2rem;
@@ -121,6 +114,108 @@
         line-height: 2rem;
         padding: 0 15px;
       }
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 25px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 100;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      margin-bottom: 6px;
+      background: gold;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    #menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 150px;
+      height: 70%;
+      background: black;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      transition: left 0.5s ease;
+      z-index: 99;
+      padding-top: 100px;
+    }
+
+    #menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    #menu ul li {
+      margin: 20px 0;
+    }
+
+    #menu ul li a {
+      text-decoration: none;
+      font-size: 20px;
+      color: #B4975A;
+      transition: color 0.3s;
+    }
+
+    #menu ul li a:hover {
+      color: black;
+    }
+
+    .menu-open #menu {
+      left: 0;
+    }
+
+    #about {
+      background: url('https://images.unsplash.com/photo-1589834397601-c29589bba0c5?auto=format&fit=crop&w=1950&q=80') center center / cover no-repeat;
+      padding: 6vw;
+      position: relative;
+      font-family: 'Playfair Display', serif;
+      color: #f2f2f2;
+    }
+
+    #about .overlay {
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 4vw;
+      border-radius: 16px;
+    }
+
+    #about h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: gold;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #about h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: gold;
+      margin: 12px auto 0;
+    }
+
+    #about p {
+      font-size: 18px;
+      line-height: 1.9;
+      margin-bottom: 1.5em;
+    }
+
+    @media (max-width: 600px) {
+      #about h2 { font-size: 26px; }
+      #about p { font-size: 16px; }
+      #about .overlay { padding: 6vw; }
     }
   </style>
 </head>
@@ -134,14 +229,13 @@
     <h1>Diba & D'Orre</h1>
     <p>Crafted not for many-but for the rare few.<br>Whispered secrets. Eternal treasures.</p>
   </div>
-  
-<!--منوی سه خطی-->
 
   <div class="menu-toggle" id="menu-toggle">
     <span></span>
     <span></span>
     <span></span>
   </div>
+
   <nav id="menu">
     <ul>
       <li><a href="#">home</a></li>
@@ -151,144 +245,34 @@
     </ul>
   </nav>
 
-<!-- اینجا سکشن جدا باشه -->
-<!-- About Section with Background -->
-<section id="about">
-  <div class="overlay">
-    <h2>About Diba & D’Orre</h2>
-    <p>
-      Diba & D’Orre was born from a different vision — not merely to sell products, but to craft a rare experience in the art of giving.
-    </p>
-    <p>
-      We believe that a gift is not just an item; it carries the message, emotion, and refined taste of the giver. We curate a refined selection of luxury treasures—each chosen and presented with precision, elegance, and timeless value.
-    </p>
-    <p>
-      Every offering from Diba & D’Orre tells a silent story of taste, quality, and the pursuit of beauty. Beyond borders, beyond time, and beyond expectations.
-    </p>
-  </div>
-</section>
+  <section id="about">
+    <div class="overlay">
+      <h2>About Diba & D’Orre</h2>
+      <p>
+        Diba & D’Orre was born from a different vision — not merely to sell products, but to craft a rare experience in the art of giving.
+      </p>
+      <p>
+        We believe that a gift is not just an item; it carries the message, emotion, and refined taste of the giver. We curate a refined selection of luxury treasures—each chosen and presented with precision, elegance, and timeless value.
+      </p>
+      <p>
+        Every offering from Diba & D’Orre tells a silent story of taste, quality, and the pursuit of beauty. Beyond borders, beyond time, and beyond expectations.
+      </p>
+    </div>
+  </section>
 
-<!-- Styles -->
-<style>
-  #about {
-    background: url('https://images.unsplash.com/photo-1589834397601-c29589bba0c5?auto=format&fit=crop&w=1950&q=80') center center / cover no-repeat;
-    padding: 6vw;
-    position: relative;
-    font-family: 'Playfair Display', serif;
-    color: #f2f2f2;
-  }
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const body = document.body;
 
-  #about .overlay {
-    background-color: rgba(0, 0, 0, 0.65);
-    padding: 4vw;
-    border-radius: 16px;
-  }
+    menuToggle.addEventListener('click', () => {
+      body.classList.toggle('menu-open');
+    });
 
-  #about h2 {
-    font-family: 'Cormorant Garamond', serif;
-    color: gold;
-    font-size: 32px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  #about h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 2px;
-    background: gold;
-    margin: 12px auto 0;
-  }
-
-  #about p {
-    font-size: 18px;
-    line-height: 1.9;
-    margin-bottom: 1.5em;
-  }
-
-  @media (max-width: 600px) {
-    #about h2 { font-size: 26px; }
-    #about p { font-size: 16px; }
-    #about .overlay { padding: 6vw; }
-  }
-</style>
-/* استایل منوی سه خط */
-.menu-toggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 25px;
-  height: 20px;
-  cursor: pointer;
-  z-index: 100;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  margin-bottom: 6px;
-  background: gold;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-/* استایل منوی باز شده */
-#menu {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 150px;
-  height: 70%;
-  background: black;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-  transition: left 0.5s ease;
-  z-index: 99;
-  padding-top: 100px;
-}
-
-#menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
-#menu ul li {
-  margin: 20px 0;
-}
-
-#menu ul li a {
-  text-decoration: none;
-  font-size: 20px;
-  color: #B4975A;
-  transition: color 0.3s;
-}
-
-#menu ul li a:hover {
-  color: black;
-}
-
-/* تغییر وضعیت منو */
-.menu-open #menu {
-  left: 0;
-}
-</style>
-<script>
-// اسکریپت باز و بسته شدن منو
-const menuToggle = document.getElementById('menu-toggle');
-const body = document.body;
-
-menuToggle.addEventListener('click', () => {
-  body.classList.toggle('menu-open');
-});
-
-// بستن منو هنگام کلیک روی لینک‌ها
-document.querySelectorAll('#menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    body.classList.remove('menu-open');
-  });
-});
- 
-</script>
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        body.classList.remove('menu-open');
+      });
+    });
+  </script>
+</body>
+</html>
