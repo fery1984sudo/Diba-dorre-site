@@ -3,7 +3,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diba & D'Orre | Luxurious Gifts</title>
-  <meta name="description" content="Diba & D’Orre – Curated treasures and luxurious gifts for the refined.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,122 +11,107 @@
       background-color: #fff;
       color: #333;
     }
-    .intro {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #d8eee7;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+    .logo {
+      height: 50px;
+    }
+    .menu-icon {
+      width: 25px;
+      cursor: pointer;
+    }
+    .menu-icon span {
+      display: block;
+      height: 3px;
+      background: #333;
+      margin: 5px 0;
+      border-radius: 2px;
+    }
+    .side-menu {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0; left: -100%;
+      width: 100%;
+      height: 100%;
       background: #fff;
-      display: flex; align-items: center; justify-content: center;
       z-index: 100;
-      animation: fadeOut 4s forwards;
-      animation-delay: 4s;
+      transition: left 0.3s ease;
+      overflow-y: auto;
     }
-    .intro img {
-      width: 280px;
-      animation: logoGlow 4s ease-in-out;
-      filter: drop-shadow(0 0 15px gold);
+    .side-menu.active {
+      left: 0;
     }
-    @keyframes logoGlow {
-      0% { opacity: 0; transform: scale(0.8); }
-      50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 30px gold); }
-      100% { opacity: 1; transform: scale(1); }
+    .side-menu-header {
+      background-color: #d8eee7;
+      padding: 15px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
     }
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #d8eee7;
-  position: sticky;
-  top: 0;
-  z-index: 99;
-}
-.logo {
-  height: 50px;
-}
-.menu-icon {
-  width: 25px;
-  cursor: pointer;
-}
-.menu-icon span {
-  display: block;
-  height: 3px;
-  background: #333;
-  margin: 5px 0;
-  border-radius: 2px;
-}
-
-.side-menu {
-  position: fixed;
-  top: 0; left: -100%;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  z-index: 100;
-  transition: left 0.3s ease;
-}
-.side-menu.active {
-  left: 0;
-}
-.side-menu-header {
-  background-color: #d8eee7;
-  padding: 15px;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-}
-.side-menu ul {
-  list-style: none;
-  padding: 20px;
-}
-.side-menu ul li {
-  padding: 15px 10px;
-  border-bottom: 1px solid #eee;
-  font-size: 1.1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.side-menu ul li:hover {
-  background-color: #f2f2f2;
-}
-.side-menu .auth-button {
-  display: block;
-  margin: 30px auto;
-  width: 80%;
-  background: #6bbca5;
-  color: #fff;
-  padding: 12px;
-  text-align: center;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.welcome {
-  padding: 100px 20px 40px;
-  text-align: center;
-}
-.welcome h1 {
-  font-size: 3rem;
-  font-family: 'Playfair Display', serif;
-  color: #b4975a;
-}
-.welcome p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 1rem auto;
-  color: #555;
-}
-
+    .side-menu ul {
+      list-style: none;
+      padding: 20px;
+    }
+    .side-menu ul li {
+      padding: 15px 10px;
+      border-bottom: 1px solid #eee;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .side-menu ul li:hover {
+      background-color: #f2f2f2;
+    }
+    .side-menu .info {
+      padding: 20px;
+      font-size: 0.95rem;
+      color: #444;
+    }
+    .side-menu .info div {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .side-menu .auth-button {
+      display: block;
+      margin: 30px auto;
+      width: 80%;
+      background: #6bbca5;
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .welcome {
+      padding: 100px 20px 40px;
+      text-align: center;
+    }
+    .welcome h1 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      color: #b4975a;
+    }
+    .welcome p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto;
+      color: #555;
+    }
   </style>
 </head>
 <body>
-  <div class="intro">
-    <img src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
-  </div>  <div class="navbar">
+  <div class="navbar">
     <div class="menu-icon" onclick="document.getElementById('menu').classList.toggle('active')">
       <span></span><span></span><span></span>
     </div>
@@ -136,17 +120,19 @@
   </div>  <div class="side-menu" id="menu">
     <div class="side-menu-header">Diba & D'Orre</div>
     <ul>
-      <li>Mother's Day <span>&rsaquo;</span></li>
-      <li>New In <span>&rsaquo;</span></li>
-      <li>Picnic <span>&rsaquo;</span></li>
-      <li>Hampers <span>&rsaquo;</span></li>
+      <li>Home <span>&rsaquo;</span></li>
       <li>Gifts <span>&rsaquo;</span></li>
-      <li>Tea & Coffee <span>&rsaquo;</span></li>
-      <li>Jewelry <span>&rsaquo;</span></li>
-      <li>Luxury Saffron <span>&rsaquo;</span></li>
-      <li>Honey Collection <span>&rsaquo;</span></li>
-      <li>Persian Keepsakes <span>&rsaquo;</span></li>
+      <li>Picnic <span>&rsaquo;</span></li>
+      <li>Restaurants & Events <span>&rsaquo;</span></li>
     </ul>
+    <div class="info">
+      <strong>Information & Help</strong>
+      <div>🚚 Delivery information</div>
+      <div>ℹ️ FAQ</div>
+      <div>🔁 Exchange & Returns</div>
+      <div>📞 +971 5XX XXX XXXX</div>
+      <div>🌍 Country / Region: Oman / ﷼ OMR</div>
+    </div>
     <a href="#" class="auth-button">Sign in or Register</a>
   </div>  <div class="welcome">
     <h1>Diba & D'Orre</h1>
