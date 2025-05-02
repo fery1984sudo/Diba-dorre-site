@@ -11,6 +11,31 @@
       background-color: #fff;
       color: #333;
     }
+    .intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      animation: fadeOut 4s forwards;
+      animation-delay: 4s;
+    }
+    .intro img {
+      width: 300px;
+      animation: logoGlow 4s ease-in-out;
+      filter: drop-shadow(0 0 15px gold);
+    }
+    @keyframes logoGlow {
+      0% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 30px gold); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -111,7 +136,9 @@
   </style>
 </head>
 <body>
-  <div class="navbar">
+  <div class="intro">
+    <img src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
+  </div>  <div class="navbar">
     <div class="menu-icon" onclick="document.getElementById('menu').classList.toggle('active')">
       <span></span><span></span><span></span>
     </div>
