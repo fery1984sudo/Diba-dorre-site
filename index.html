@@ -1,130 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diba & D'Orre | Eternal Treasures</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diba & D'Orre | Luxurious Gifts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      background-color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
       color: #333;
     }
-    header {
-      background-color: #e7f2ef;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      flex-wrap: wrap;
-    }
-    header h1 {
-      font-size: 1.6rem;
-      margin: 0;
-      color: #1a1a1a;
-    }
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: #444;
-      font-size: 1rem;
-      cursor: pointer;
-    }
     .intro {
-      text-align: center;
-      background-color: #000;
-      color: white;
-      padding: 5rem 2rem;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 200;
+      animation: fadeOut 4s forwards;
+      animation-delay: 4s;
     }
     .intro img {
-      max-width: 160px;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 0 10px gold);
+      width: 300px;
+      animation: logoGlow 4s ease-in-out;
+      filter: drop-shadow(0 0 15px gold);
     }
-    .intro p {
-      font-size: 1.2rem;
-      line-height: 2rem;
-      margin: 0 auto;
-      max-width: 500px;
+    @keyframes logoGlow {
+      0% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 30px gold); }
+      100% { opacity: 1; transform: scale(1); }
     }
-    .delivery-section {
-      display: none;
-      padding: 2rem;
-      background-color: #f9f9f9;
-    }
-    .delivery-section.active {
-      display: block;
-    }
-    footer {
-      background-color: #111;
-      color: #ccc;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        width: 100%;
-        margin-top: 1rem;
-      }
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #d8eee7;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+.logo {
+  height: 50px;
+}
+.menu-icon {
+  width: 25px;
+  cursor: pointer;
+}
+.menu-icon span {
+  display: block;
+  height: 3px;
+  background: #333;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+.side-menu {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+.side-menu.active {
+  left: 0;
+}
+.side-menu-header {
+  background-color: #d8eee7;
+  padding: 15px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.side-menu ul {
+  list-style: none;
+  padding: 20px;
+}
+.side-menu ul li {
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.side-menu ul li:hover {
+  background-color: #f2f2f2;
+}
+.side-menu .info {
+  padding: 20px;
+  font-size: 0.95rem;
+  color: #444;
+}
+.side-menu .info div {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.side-menu .auth-button {
+  display: block;
+  margin: 30px auto;
+  width: 80%;
+  background: #6bbca5;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.hero-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: #444;
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+  letter-spacing: 0.4px;
+  white-space: normal;
+}
+.welcome {
+  padding: 100px 20px 40px;
+  text-align: center;
+}
+.welcome h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: #b4975a;
+}
+
+@media (max-width: 600px) {
+  .hero-text {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    max-width: 90%;
+  }
+  .welcome h1 {
+    font-size: 2.2rem;
+  }
+  .side-menu ul li {
+    font-size: 1rem;
+    padding: 12px 10px;
+  }
+  .side-menu .auth-button {
+    width: 90%;
+    font-size: 0.95rem;
+  }
+}
+
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>Diba & D'Orre</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Gifts</a>
-      <a onclick="toggleDelivery()">Delivery Info</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <section class="intro">
-    <img src="000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
-    <p>Crafted not for many — but for the rare few.<br>Whispered secrets. Eternal treasures.</p>
-  </section>
-
-  <section id="delivery" class="delivery-section">
-    <h2>Delivery & Returns</h2>
-    <p><strong>Standard Delivery – 10 EUR</strong></p>
-    <p>We offer delivery across selected EU countries within 2–4 working days. The flat delivery rate is 10 euros.</p>
-
-    <h3>Delivery Timeframes</h3>
+  <div class="intro">
+    <img src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
+  </div>  <div class="navbar">
+    <div class="menu-icon" onclick="document.getElementById('menu').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </div>
+    <img class="logo" src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Logo">
+    <div style="width:25px"></div>
+  </div>  <div class="side-menu" id="menu">
+    <div class="side-menu-header">
+      Diba & D'Orre
+      <div class="close-btn" onclick="document.getElementById('menu').classList.remove('active')">&times;</div>
+    </div>
     <ul>
-      <li>Austria: 3 working days</li>
-      <li>Belgium: 2 working days</li>
-      <li>France: 4 working days</li>
-      <li>Germany: 3 working days</li>
-      <li>Italy: 4 working days</li>
+      <li>Best Sellers <span>&rsaquo;</span></li>
+      <li>Hampers <span>&rsaquo;</span></li>
+      <li>Tea & Coffee <span>&rsaquo;</span></li>
+      <li>Food Hall <span>&rsaquo;</span></li>
+      <li>Gifts <span>&rsaquo;</span></li>
+      <li>Home <span>&rsaquo;</span></li>
+      <li>Picnic <span>&rsaquo;</span></li>
+      <li>Restaurants, Stores & Events <span>&rsaquo;</span></li>
     </ul>
-
-    <h3>Returns & Exchanges</h3>
-    <p>If your item is damaged, incorrect or faulty, you may return it within 30 days for a full refund or exchange. Items must be returned in original condition.</p>
-  </section>
-
-  <footer>
-    &copy; 2025 Diba & D'Orre. All rights reserved.
-  </footer>
-
-  <script>
-    function toggleDelivery() {
-      const section = document.getElementById('delivery');
-      section.classList.toggle('active');
-    }
-  </script>
-
-</body>
+    <div class="info">
+      <strong>Information & Help</strong>
+      <div>🚚 Delivery information</div>
+      <div>ℹ️ FAQ</div>
+      <div>🔁 Exchange & Returns</div>
+      <div>📞 +971 5XX XXX XXXX</div>
+      <div>🌍 Country / Region: Oman / ﷼ OMR</div>
+    </div>
+    <a href="#" class="auth-button">Sign in or Register</a>
+  </div>  <div class="welcome">
+    <h1>Diba & D'Orre</h1>
+    <p class="hero-text">Crafted not for many — but for the rare few.<br>Whispered secrets. Eternal treasures.</p>
+  </div>  <script>
+    document.body.addEventListener('click', function(e) {
+      const menu = document.getElementById('menu');
+      const icon = document.querySelector('.menu-icon');
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script></body>
 </html>
