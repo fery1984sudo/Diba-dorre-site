@@ -1,14 +1,15 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diba & D'Orre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diba & D'Orre | Eternal Treasures</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Playfair Display', serif;
-      background-color: #fff;
+      background-color: #ffffff;
       color: #333;
     }
     header {
@@ -17,45 +18,61 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      flex-wrap: wrap;
     }
     header h1 {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       margin: 0;
+      color: #1a1a1a;
     }
     nav a {
       margin-left: 1.5rem;
       text-decoration: none;
-      color: #333;
+      color: #444;
       font-size: 1rem;
+      cursor: pointer;
     }
     .intro {
       text-align: center;
-      background: #000;
+      background-color: #000;
       color: white;
-      padding: 6rem 2rem;
+      padding: 5rem 2rem;
+    }
+    .intro img {
+      max-width: 160px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px gold);
     }
     .intro p {
       font-size: 1.2rem;
       line-height: 2rem;
-      margin: 0;
+      margin: 0 auto;
+      max-width: 500px;
     }
     .delivery-section {
       display: none;
       padding: 2rem;
       background-color: #f9f9f9;
-      color: #000;
     }
     .delivery-section.active {
       display: block;
     }
     footer {
-      background-color: #222;
-      color: white;
+      background-color: #111;
+      color: #ccc;
       text-align: center;
       padding: 1rem;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
     @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        width: 100%;
+        margin-top: 1rem;
+      }
       nav a {
         display: block;
         margin: 0.5rem 0;
@@ -64,21 +81,27 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>Diba & D'Orre</h1>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#gifts">Gifts</a>
-      <a href="#" onclick="toggleDelivery()">Delivery Info</a>
-      <a href="#contact">Contact</a>
+      <a href="#">Home</a>
+      <a href="#">Gifts</a>
+      <a onclick="toggleDelivery()">Delivery Info</a>
+      <a href="#">Contact</a>
     </nav>
-  </header>  <section class="intro">
-    <img src="logo.png" alt="Diba & D'Orre Logo" style="max-width: 150px; display: block; margin: 0 auto 1rem;">
+  </header>
+
+  <section class="intro">
+    <img src="000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
     <p>Crafted not for many — but for the rare few.<br>Whispered secrets. Eternal treasures.</p>
-  </section>  <section id="delivery" class="delivery-section">
+  </section>
+
+  <section id="delivery" class="delivery-section">
     <h2>Delivery & Returns</h2>
     <p><strong>Standard Delivery – 10 EUR</strong></p>
-    <p>We offer delivery across a selection of EU countries within 2–4 working days. The flat delivery rate is 10 euros.</p>
+    <p>We offer delivery across selected EU countries within 2–4 working days. The flat delivery rate is 10 euros.</p>
+
     <h3>Delivery Timeframes</h3>
     <ul>
       <li>Austria: 3 working days</li>
@@ -87,15 +110,21 @@
       <li>Germany: 3 working days</li>
       <li>Italy: 4 working days</li>
     </ul>
+
     <h3>Returns & Exchanges</h3>
-    <p>If your item is faulty or incorrect, you may return it within 30 days for a full refund or replacement. Items must be unused and in original packaging.</p>
-    <p>Return postage is the responsibility of the sender unless the product is faulty or damaged.</p>
-  </section>  <footer>
-    &copy; Diba & D'Orre 2025. All rights reserved.
-  </footer>  <script>
+    <p>If your item is damaged, incorrect or faulty, you may return it within 30 days for a full refund or exchange. Items must be returned in original condition.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Diba & D'Orre. All rights reserved.
+  </footer>
+
+  <script>
     function toggleDelivery() {
       const section = document.getElementById('delivery');
       section.classList.toggle('active');
     }
-  </script></body>
+  </script>
+
+</body>
 </html>
