@@ -76,6 +76,14 @@
   text-align: center;
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 .side-menu ul {
   list-style: none;
@@ -168,7 +176,10 @@
     <img class="logo" src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Logo">
     <div style="width:25px"></div>
   </div>  <div class="side-menu" id="menu">
-    <div class="side-menu-header">Diba & D'Orre</div>
+    <div class="side-menu-header">
+      Diba & D'Orre
+      <div class="close-btn" onclick="document.getElementById('menu').classList.remove('active')">&times;</div>
+    </div>
     <ul>
       <li>Best Sellers <span>&rsaquo;</span></li>
       <li>Hampers <span>&rsaquo;</span></li>
