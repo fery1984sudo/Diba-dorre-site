@@ -118,8 +118,8 @@
 .hero-text {
   font-family: 'Playfair Display', serif;
   font-weight: 500;
-  font-size: 1 rem;
-  line-height: 2.2rem;
+  font-size: 1.3rem;
+  line-height: 2rem;
   color: #444;
   text-align: center;
   max-width: 480px;
@@ -132,9 +132,28 @@
   text-align: center;
 }
 .welcome h1 {
-  font-size: 2 rem;
+  font-size: 3rem;
   font-family: 'Playfair Display', serif;
   color: #b4975a;
+}
+
+@media (max-width: 600px) {
+  .hero-text {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    max-width: 90%;
+  }
+  .welcome h1 {
+    font-size: 2.2rem;
+  }
+  .side-menu ul li {
+    font-size: 1rem;
+    padding: 12px 10px;
+  }
+  .side-menu .auth-button {
+    width: 90%;
+    font-size: 0.95rem;
+  }
 }
 
   </style>
