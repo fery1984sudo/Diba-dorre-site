@@ -6,19 +6,11 @@
   <meta name="description" content="Diba & D’Orre – Curated treasures and luxurious gifts for the refined.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background-color: #fff;
       color: #333;
-      overflow-x: hidden;
     }
     .intro {
       position: fixed;
@@ -42,131 +34,92 @@
     }
     @keyframes fadeOut {
       to { opacity: 0; visibility: hidden; }
-    }header {
-  background: #fff;
+    }.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #d8eee7;
   position: sticky;
   top: 0;
   z-index: 99;
-  padding: 20px;
-  text-align: center;
-  border-bottom: 1px solid #eee;
 }
-header img {
+.logo {
   height: 50px;
 }
+.menu-icon {
+  width: 25px;
+  cursor: pointer;
+}
+.menu-icon span {
+  display: block;
+  height: 3px;
+  background: #333;
+  margin: 5px 0;
+  border-radius: 2px;
+}
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 15px 0;
+.side-menu {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  transition: left 0.3s ease;
+}
+.side-menu.active {
+  left: 0;
+}
+.side-menu-header {
+  background-color: #d8eee7;
+  padding: 15px;
+  text-align: center;
   font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
 }
-nav a {
-  text-decoration: none;
-  color: #b4975a;
-  font-weight: 500;
+.side-menu ul {
+  list-style: none;
+  padding: 20px;
+}
+.side-menu ul li {
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
   font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-nav a:hover {
-  color: #000;
+.side-menu ul li:hover {
+  background-color: #f2f2f2;
+}
+.side-menu .auth-button {
+  display: block;
+  margin: 30px auto;
+  width: 80%;
+  background: #6bbca5;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .welcome {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 100px 20px 40px;
   text-align: center;
-  background: #fff;
-  color: #b4975a;
-  padding: 40px;
 }
 .welcome h1 {
   font-size: 3rem;
   font-family: 'Playfair Display', serif;
+  color: #b4975a;
 }
 .welcome p {
-  color: #444;
   font-size: 1.2rem;
   max-width: 600px;
-  margin-top: 1rem;
-}
-
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-section h2 {
-  color: #b4975a;
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-section p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.05rem;
+  margin: 1rem auto;
   color: #555;
-  line-height: 1.8;
-}
-
-.shop-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-top: 40px;
-  padding: 0 20px;
-}
-.product {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
-  text-align: left;
-}
-.product img {
-  width: 100%;
-  height: auto;
-}
-.product-content {
-  padding: 20px;
-}
-.product-content h3 {
-  font-size: 1.2rem;
-  color: #b4975a;
-  margin-bottom: 10px;
-}
-.product-content p {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-.product-content button {
-  margin-top: 15px;
-  background: #b4975a;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.product-content button:hover {
-  background: #a28545;
-}
-
-footer {
-  background: #f9f9f9;
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid #eee;
-}
-footer img {
-  height: 50px;
-  margin-bottom: 15px;
 }
 
   </style>
@@ -174,66 +127,37 @@ footer img {
 <body>
   <div class="intro">
     <img src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Diba & D'Orre Logo">
-  </div>  <header>
-    <img src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Logo">
-    <nav>
-      <a href="#about">About</a>
-      <a href="#gifts">Gifts</a>
-      <a href="#shop">Shop</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>  <div class="welcome">
+  </div>  <div class="navbar">
+    <div class="menu-icon" onclick="document.getElementById('menu').classList.toggle('active')">
+      <span></span><span></span><span></span>
+    </div>
+    <img class="logo" src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Logo">
+    <div style="width:25px"></div>
+  </div>  <div class="side-menu" id="menu">
+    <div class="side-menu-header">Diba & D'Orre</div>
+    <ul>
+      <li>Mother's Day <span>&rsaquo;</span></li>
+      <li>New In <span>&rsaquo;</span></li>
+      <li>Picnic <span>&rsaquo;</span></li>
+      <li>Hampers <span>&rsaquo;</span></li>
+      <li>Gifts <span>&rsaquo;</span></li>
+      <li>Tea & Coffee <span>&rsaquo;</span></li>
+      <li>Jewelry <span>&rsaquo;</span></li>
+      <li>Luxury Saffron <span>&rsaquo;</span></li>
+      <li>Honey Collection <span>&rsaquo;</span></li>
+      <li>Persian Keepsakes <span>&rsaquo;</span></li>
+    </ul>
+    <a href="#" class="auth-button">Sign in or Register</a>
+  </div>  <div class="welcome">
     <h1>Diba & D'Orre</h1>
     <p>Crafted not for many — but for the rare few. Whispered secrets. Eternal treasures.</p>
-  </div>  <section id="about">
-    <h2>About Diba & D’Orre</h2>
-    <p>
-      Diba & D’Orre was born from a different vision — not merely to sell products, but to craft a rare experience in the art of giving.
-      We believe that a gift is not just an item; it carries the message, emotion, and refined taste of the giver.
-      We curate a refined selection of luxury treasures—each chosen and presented with precision, elegance, and timeless value.
-      Every offering from Diba & D’Orre tells a silent story of taste, quality, and the pursuit of beauty. Beyond borders, beyond time, and beyond expectations.
-    </p>
-  </section>  <section id="gifts">
-    <h2>Our Treasures</h2>
-    <p>
-      From luxurious saffron and golden honey to handmade jewels and cultural keepsakes, our curated offerings are designed to celebrate refinement and meaning.
-    </p>
-  </section>  <section id="shop">
-    <h2>Shop Collection</h2>
-    <div class="shop-grid">
-      <div class="product">
-        <img src="saffron.jpg" alt="Saffron">
-        <div class="product-content">
-          <h3>Persian Saffron</h3>
-          <p>Deep red threads handpicked from the finest Iranian crocus fields. A treasure in every strand.</p>
-          <button>Buy Now</button>
-        </div>
-      </div>
-      <div class="product">
-        <img src="honey.jpg" alt="Gold Honey">
-        <div class="product-content">
-          <h3>Gold-Infused Honey</h3>
-          <p>Pure organic honey from Persian highlands blended with edible 24k gold flakes.</p>
-          <button>Buy Now</button>
-        </div>
-      </div>
-      <div class="product">
-        <img src="jewels.jpg" alt="Jewelry">
-        <div class="product-content">
-          <h3>Handcrafted Jewelry</h3>
-          <p>Minimal pieces designed to echo Persian elegance — crafted to be gifted, worn, and cherished.</p>
-          <button>Buy Now</button>
-        </div>
-      </div>
-    </div>
-  </section>  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>For custom orders, collaborations, or corporate gifting, contact us:</p>
-    <p>Email: <strong>contact@diba-dorre.com</strong></p>
-    <p>Phone: <strong>+971 5XX XXX XXXX</strong></p>
-  </section>  <footer>
-    <img src="https://raw.githubusercontent.com/fery1984sudo/Diba-dorre-site/main/file_000000008da0620a9fa66ea4902bfe40.png" alt="Logo">
-    <p>&copy; 2025 Diba & D'Orre. All rights reserved.</p>
-  </footer>
-</body>
+  </div>  <script>
+    document.body.addEventListener('click', function(e) {
+      const menu = document.getElementById('menu');
+      const icon = document.querySelector('.menu-icon');
+      if (!menu.contains(e.target) && !icon.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    });
+  </script></body>
 </html>
